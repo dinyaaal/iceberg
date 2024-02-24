@@ -363,14 +363,6 @@
         }
         return parents;
     }
-    function utils_elementTransitionEnd(el, callback) {
-        function fireCallBack(e) {
-            if (e.target !== el) return;
-            callback.call(el, e);
-            el.removeEventListener("transitionend", fireCallBack);
-        }
-        if (callback) el.addEventListener("transitionend", fireCallBack);
-    }
     function elementOuterSize(el, size, includeMargins) {
         const window = ssr_window_esm_getWindow();
         if (includeMargins) return el[size === "width" ? "offsetWidth" : "offsetHeight"] + parseFloat(window.getComputedStyle(el, null).getPropertyValue(size === "width" ? "margin-right" : "margin-top")) + parseFloat(window.getComputedStyle(el, null).getPropertyValue(size === "width" ? "margin-left" : "margin-bottom"));
@@ -3642,6 +3634,24 @@
             update
         });
     }
+    function effect_target_effectTarget(effectParams, slideEl) {
+        const transformEl = utils_getSlideTransformEl(slideEl);
+        if (transformEl !== slideEl) {
+            transformEl.style.backfaceVisibility = "hidden";
+            transformEl.style["-webkit-backface-visibility"] = "hidden";
+        }
+        return transformEl;
+    }
+    function create_shadow_createShadow(suffix, slideEl, side) {
+        const shadowClass = `swiper-slide-shadow${side ? `-${side}` : ""}${suffix ? ` swiper-slide-shadow-${suffix}` : ""}`;
+        const shadowContainer = utils_getSlideTransformEl(slideEl);
+        let shadowEl = shadowContainer.querySelector(`.${shadowClass.split(" ").join(".")}`);
+        if (!shadowEl) {
+            shadowEl = utils_createElement("div", shadowClass.split(" "));
+            shadowContainer.append(shadowEl);
+        }
+        return shadowEl;
+    }
     function effect_init_effectInit(params) {
         const {effect, swiper, on, setTranslate, setTransition, overwriteParams, perspective, recreateShadows, getEffectParams} = params;
         on("beforeInit", (() => {
@@ -3682,102 +3692,88 @@
             }));
         }));
     }
-    function effect_target_effectTarget(effectParams, slideEl) {
-        const transformEl = utils_getSlideTransformEl(slideEl);
-        if (transformEl !== slideEl) {
-            transformEl.style.backfaceVisibility = "hidden";
-            transformEl.style["-webkit-backface-visibility"] = "hidden";
-        }
-        return transformEl;
-    }
-    function effect_virtual_transition_end_effectVirtualTransitionEnd(_ref) {
-        let {swiper, duration, transformElements, allSlides} = _ref;
-        const {activeIndex} = swiper;
-        const getSlide = el => {
-            if (!el.parentElement) {
-                const slide = swiper.slides.filter((slideEl => slideEl.shadowRoot && slideEl.shadowRoot === el.parentNode))[0];
-                return slide;
-            }
-            return el.parentElement;
-        };
-        if (swiper.params.virtualTranslate && duration !== 0) {
-            let eventTriggered = false;
-            let transitionEndTarget;
-            if (allSlides) transitionEndTarget = transformElements; else transitionEndTarget = transformElements.filter((transformEl => {
-                const el = transformEl.classList.contains("swiper-slide-transform") ? getSlide(transformEl) : transformEl;
-                return swiper.getSlideIndex(el) === activeIndex;
-            }));
-            transitionEndTarget.forEach((el => {
-                utils_elementTransitionEnd(el, (() => {
-                    if (eventTriggered) return;
-                    if (!swiper || swiper.destroyed) return;
-                    eventTriggered = true;
-                    swiper.animating = false;
-                    const evt = new window.CustomEvent("transitionend", {
-                        bubbles: true,
-                        cancelable: true
-                    });
-                    swiper.wrapperEl.dispatchEvent(evt);
-                }));
-            }));
-        }
-    }
-    function EffectFade(_ref) {
+    function EffectCoverflow(_ref) {
         let {swiper, extendParams, on} = _ref;
         extendParams({
-            fadeEffect: {
-                crossFade: false
+            coverflowEffect: {
+                rotate: 50,
+                stretch: 0,
+                depth: 100,
+                scale: 1,
+                modifier: 1,
+                slideShadows: true
             }
         });
         const setTranslate = () => {
-            const {slides} = swiper;
-            const params = swiper.params.fadeEffect;
-            for (let i = 0; i < slides.length; i += 1) {
-                const slideEl = swiper.slides[i];
-                const offset = slideEl.swiperSlideOffset;
-                let tx = -offset;
-                if (!swiper.params.virtualTranslate) tx -= swiper.translate;
-                let ty = 0;
-                if (!swiper.isHorizontal()) {
-                    ty = tx;
-                    tx = 0;
+            const {width: swiperWidth, height: swiperHeight, slides, slidesSizesGrid} = swiper;
+            const params = swiper.params.coverflowEffect;
+            const isHorizontal = swiper.isHorizontal();
+            const transform = swiper.translate;
+            const center = isHorizontal ? -transform + swiperWidth / 2 : -transform + swiperHeight / 2;
+            const rotate = isHorizontal ? params.rotate : -params.rotate;
+            const translate = params.depth;
+            for (let i = 0, length = slides.length; i < length; i += 1) {
+                const slideEl = slides[i];
+                const slideSize = slidesSizesGrid[i];
+                const slideOffset = slideEl.swiperSlideOffset;
+                const centerOffset = (center - slideOffset - slideSize / 2) / slideSize;
+                const offsetMultiplier = typeof params.modifier === "function" ? params.modifier(centerOffset) : centerOffset * params.modifier;
+                let rotateY = isHorizontal ? rotate * offsetMultiplier : 0;
+                let rotateX = isHorizontal ? 0 : rotate * offsetMultiplier;
+                let translateZ = -translate * Math.abs(offsetMultiplier);
+                let stretch = params.stretch;
+                if (typeof stretch === "string" && stretch.indexOf("%") !== -1) stretch = parseFloat(params.stretch) / 100 * slideSize;
+                let translateY = isHorizontal ? 0 : stretch * offsetMultiplier;
+                let translateX = isHorizontal ? stretch * offsetMultiplier : 0;
+                let scale = 1 - (1 - params.scale) * Math.abs(offsetMultiplier);
+                if (Math.abs(translateX) < .001) translateX = 0;
+                if (Math.abs(translateY) < .001) translateY = 0;
+                if (Math.abs(translateZ) < .001) translateZ = 0;
+                if (Math.abs(rotateY) < .001) rotateY = 0;
+                if (Math.abs(rotateX) < .001) rotateX = 0;
+                if (Math.abs(scale) < .001) scale = 0;
+                if (swiper.browser && swiper.browser.need3dFix) {
+                    if (Math.abs(rotateY) / 90 % 2 === 1) rotateY += .001;
+                    if (Math.abs(rotateX) / 90 % 2 === 1) rotateX += .001;
                 }
-                const slideOpacity = swiper.params.fadeEffect.crossFade ? Math.max(1 - Math.abs(slideEl.progress), 0) : 1 + Math.min(Math.max(slideEl.progress, -1), 0);
+                const slideTransform = `translate3d(${translateX}px,${translateY}px,${translateZ}px)  rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(${scale})`;
                 const targetEl = effect_target_effectTarget(params, slideEl);
-                targetEl.style.opacity = slideOpacity;
-                targetEl.style.transform = `translate3d(${tx}px, ${ty}px, 0px)`;
+                targetEl.style.transform = slideTransform;
+                slideEl.style.zIndex = -Math.abs(Math.round(offsetMultiplier)) + 1;
+                if (params.slideShadows) {
+                    let shadowBeforeEl = isHorizontal ? slideEl.querySelector(".swiper-slide-shadow-left") : slideEl.querySelector(".swiper-slide-shadow-top");
+                    let shadowAfterEl = isHorizontal ? slideEl.querySelector(".swiper-slide-shadow-right") : slideEl.querySelector(".swiper-slide-shadow-bottom");
+                    if (!shadowBeforeEl) shadowBeforeEl = create_shadow_createShadow("coverflow", slideEl, isHorizontal ? "left" : "top");
+                    if (!shadowAfterEl) shadowAfterEl = create_shadow_createShadow("coverflow", slideEl, isHorizontal ? "right" : "bottom");
+                    if (shadowBeforeEl) shadowBeforeEl.style.opacity = offsetMultiplier > 0 ? offsetMultiplier : 0;
+                    if (shadowAfterEl) shadowAfterEl.style.opacity = -offsetMultiplier > 0 ? -offsetMultiplier : 0;
+                }
             }
         };
         const setTransition = duration => {
             const transformElements = swiper.slides.map((slideEl => utils_getSlideTransformEl(slideEl)));
             transformElements.forEach((el => {
                 el.style.transitionDuration = `${duration}ms`;
+                el.querySelectorAll(".swiper-slide-shadow-top, .swiper-slide-shadow-right, .swiper-slide-shadow-bottom, .swiper-slide-shadow-left").forEach((shadowEl => {
+                    shadowEl.style.transitionDuration = `${duration}ms`;
+                }));
             }));
-            effect_virtual_transition_end_effectVirtualTransitionEnd({
-                swiper,
-                duration,
-                transformElements,
-                allSlides: true
-            });
         };
         effect_init_effectInit({
-            effect: "fade",
+            effect: "coverflow",
             swiper,
             on,
             setTranslate,
             setTransition,
+            perspective: () => true,
             overwriteParams: () => ({
-                slidesPerView: 1,
-                slidesPerGroup: 1,
-                watchSlidesProgress: true,
-                spaceBetween: 0,
-                virtualTranslate: !swiper.params.cssMode
+                watchSlidesProgress: true
             })
         });
     }
     function initSliders() {
         if (document.querySelector(".content-why")) var swiper = new swiper_core_Swiper(".content-why", {
-            modules: [ Navigation, Thumb, EffectFade ],
+            modules: [ Navigation, Thumb ],
             spaceBetween: 30,
             touchRatio: 0,
             speed: 0,
@@ -3825,6 +3821,30 @@
                 }
             },
             on: {}
+        });
+        if (document.querySelector(".projects__slider")) new swiper_core_Swiper(".projects__slider", {
+            modules: [ Navigation, EffectCoverflow ],
+            effect: "coverflow",
+            grabCursor: true,
+            centeredSlides: true,
+            slidesPerView: 1,
+            speed: 800,
+            loop: true,
+            navigation: {
+                prevEl: ".slider-projects__arrow--left",
+                nextEl: ".slider-projects__arrow--right"
+            },
+            breakpoints: {
+                767.98: {
+                    slidesPerView: "auto",
+                    coverflowEffect: {
+                        rotate: 0,
+                        stretch: 100,
+                        depth: 100,
+                        modifier: 2
+                    }
+                }
+            }
         });
     }
     window.addEventListener("load", (function(e) {
