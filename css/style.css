@@ -606,6 +606,95 @@ h6 {
           transform: translate(0, 50%);
 }
 
+.problems__items {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[2];
+  grid-template-columns: repeat(2, 1fr);
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  justify-items: center;
+  text-align: center;
+  -webkit-column-gap: 1.25rem;
+     -moz-column-gap: 1.25rem;
+          column-gap: 1.25rem;
+  row-gap: 2.5rem;
+}
+
+.problems__items :nth-child(4n+2) .item-problems__bg {
+  -webkit-transform: rotate(-165deg);
+      -ms-transform: rotate(-165deg);
+          transform: rotate(-165deg);
+}
+
+.problems__items :nth-child(4n+4) .item-problems__bg {
+  -webkit-transform: scaleX(-1) rotate(10deg);
+      -ms-transform: scaleX(-1) rotate(10deg);
+          transform: scaleX(-1) rotate(10deg);
+}
+
+.problems__items :nth-child(4n+3) .item-problems__bg {
+  -webkit-transform: scaleY(-1);
+      -ms-transform: scaleY(-1);
+          transform: scaleY(-1);
+}
+
+.item-problems {
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  max-width: 11.625rem;
+  position: relative;
+}
+
+.item-problems::before,
+.item-problems::after {
+  content: "";
+  position: absolute;
+  width: 6.25rem;
+  height: 0.0625rem;
+  z-index: 2;
+  background-color: #01A3DE;
+}
+
+.item-problems::before {
+  content: "";
+  -webkit-transform: rotate(30deg);
+      -ms-transform: rotate(30deg);
+          transform: rotate(30deg);
+}
+
+.item-problems::after {
+  content: "";
+  -webkit-transform: rotate(-30deg);
+      -ms-transform: rotate(-30deg);
+          transform: rotate(-30deg);
+}
+
+.item-problems__text {
+  z-index: 2;
+  position: absolute;
+  font-size: 1.25rem;
+  font-weight: 800;
+  line-height: 140%;
+}
+
+.item-problems__bg img {
+  width: 100%;
+  height: 100%;
+}
+
 .advantages__items {
   position: relative;
   display: -webkit-box;
@@ -644,6 +733,33 @@ h6 {
   border-radius: 150px;
   -webkit-box-shadow: 0px 4px 30px 0px rgba(123, 156, 180, 0.2);
           box-shadow: 0px 4px 30px 0px rgba(123, 156, 180, 0.2);
+}
+
+.item-advantages:first-child::before,
+.item-advantages:first-child::after,
+.item-advantages:last-child::before,
+.item-advantages:last-child::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  bottom: 0;
+  right: 0;
+  z-index: -1;
+}
+
+.item-advantages:first-child::before {
+  -webkit-transform: translate(-1.25rem, -1.25rem) rotate(180deg);
+      -ms-transform: translate(-1.25rem, -1.25rem) rotate(180deg);
+          transform: translate(-1.25rem, -1.25rem) rotate(180deg);
+  background: url("../img/cleaning/decor.svg") bottom right no-repeat;
+}
+
+.item-advantages:last-child::after {
+  -webkit-transform: translate(1.25rem, 1.25rem);
+      -ms-transform: translate(1.25rem, 1.25rem);
+          transform: translate(1.25rem, 1.25rem);
+  background: url("../img/cleaning/decor.svg") bottom right no-repeat;
 }
 
 .item-advantages__image {
@@ -1823,29 +1939,9 @@ h6 {
         justify-self: center;
   }
 
-  .advantages__items::before,
-  .advantages__items::after {
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    bottom: 0;
-    right: 0;
-    z-index: -1;
-  }
-
-  .advantages__items::before {
-    -webkit-transform: translate(-1.25rem, -1.25rem) rotate(180deg);
-        -ms-transform: translate(-1.25rem, -1.25rem) rotate(180deg);
-            transform: translate(-1.25rem, -1.25rem) rotate(180deg);
-    background: url("../img/cleaning/decor.svg") bottom right no-repeat;
-  }
-
-  .advantages__items::after {
-    -webkit-transform: translate(1.25rem, 1.25rem);
-        -ms-transform: translate(1.25rem, 1.25rem);
-            transform: translate(1.25rem, 1.25rem);
-    background: url("../img/cleaning/decor.svg") bottom right no-repeat;
+  .problems__items {
+    -ms-grid-columns: (1fr)[4];
+    grid-template-columns: repeat(4, 1fr);
   }
 
   .top-header__analysis {
@@ -2126,6 +2222,14 @@ h6 {
     gap: 1.875rem;
   }
 
+  .problems {
+    padding-top: 2.5rem;
+  }
+
+  .problems {
+    padding-top: 5rem;
+  }
+
   .advantages {
     padding-top: 5rem;
   }
@@ -2266,6 +2370,14 @@ h6 {
 
   .item-catalog {
     gap: 1.25rem;
+  }
+
+  .problems {
+    padding-top: 1.25rem;
+  }
+
+  .problems {
+    padding-top: 3.125rem;
   }
 
   .advantages {
@@ -2503,33 +2615,6 @@ h6 {
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
-  }
-
-  .item-advantages:first-child::before,
-  .item-advantages:first-child::after,
-  .item-advantages:last-child::before,
-  .item-advantages:last-child::after {
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    bottom: 0;
-    right: 0;
-    z-index: -1;
-  }
-
-  .item-advantages:first-child::before {
-    -webkit-transform: translate(-1.25rem, -1.25rem) rotate(180deg);
-        -ms-transform: translate(-1.25rem, -1.25rem) rotate(180deg);
-            transform: translate(-1.25rem, -1.25rem) rotate(180deg);
-    background: url("../img/cleaning/decor.svg") bottom right no-repeat;
-  }
-
-  .item-advantages:last-child::after {
-    -webkit-transform: translate(1.25rem, 1.25rem);
-        -ms-transform: translate(1.25rem, 1.25rem);
-            transform: translate(1.25rem, 1.25rem);
-    background: url("../img/cleaning/decor.svg") bottom right no-repeat;
   }
 
   .header__body {
@@ -2773,6 +2858,30 @@ h6 {
 @supports not (gap: clamp( 1.25rem , 1.0681818182rem  +  0.9090909091vw , 1.875rem )) {
     .item-catalog {
       gap: calc(1.25rem + 0.625 * (100vw - 20rem) / 68.75);
+    }
+}
+
+@supports (padding-top: clamp( 1.25rem , 0.8863636364rem  +  1.8181818182vw , 2.5rem )) {
+    .problems {
+      padding-top: clamp( 1.25rem , 0.8863636364rem  +  1.8181818182vw , 2.5rem );
+    }
+}
+
+@supports not (padding-top: clamp( 1.25rem , 0.8863636364rem  +  1.8181818182vw , 2.5rem )) {
+    .problems {
+      padding-top: calc(1.25rem + 1.25 * (100vw - 20rem) / 68.75);
+    }
+}
+
+@supports (padding-top: clamp( 3.125rem , 2.5795454545rem  +  2.7272727273vw , 5rem )) {
+    .problems {
+      padding-top: clamp( 3.125rem , 2.5795454545rem  +  2.7272727273vw , 5rem );
+    }
+}
+
+@supports not (padding-top: clamp( 3.125rem , 2.5795454545rem  +  2.7272727273vw , 5rem )) {
+    .problems {
+      padding-top: calc(3.125rem + 1.875 * (100vw - 20rem) / 68.75);
     }
 }
 
