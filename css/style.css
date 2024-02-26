@@ -1649,6 +1649,7 @@ textarea.input {
 }
 
 .clients-pagination {
+  margin: 0 auto;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1659,17 +1660,17 @@ textarea.input {
       -ms-flex-align: center;
           align-items: center;
   gap: 0.75rem;
-  padding: 1rem;
-  background-color: #0479a3;
+  padding: 1rem 2rem;
+  background-color: #ffffff;
   border-radius: 1.25rem;
   position: relative;
 }
 
 .swiper-pagination-bullet {
-  height: 0.5rem;
   -webkit-box-flex: 0;
       -ms-flex: 0 0 0.5rem;
           flex: 0 0 0.5rem;
+  height: 0.5rem;
   border-radius: 50%;
   background-color: #E9F7FF;
 }
@@ -2755,6 +2756,10 @@ textarea.input {
     gap: 2rem;
   }
 
+  .swiper-clients__slide img {
+    width: 14.0625rem;
+  }
+
   .cleaning__items {
     margin-top: -6.25rem;
   }
@@ -2937,6 +2942,10 @@ textarea.input {
 
   .clients__container {
     gap: 1.5rem;
+  }
+
+  .swiper-clients__slide img {
+    width: 7.5rem;
   }
 
   .cleaning__items {
@@ -3579,6 +3588,18 @@ textarea.input {
 @supports not (gap: clamp( 1.5rem , 1.3545454545rem  +  0.7272727273vw , 2rem )) {
     .clients__container {
       gap: calc(1.5rem + 0.5 * (100vw - 20rem) / 68.75);
+    }
+}
+
+@supports (width: clamp( 7.5rem , 5.5909090909rem  +  9.5454545455vw , 14.0625rem )) {
+    .swiper-clients__slide img {
+      width: clamp( 7.5rem , 5.5909090909rem  +  9.5454545455vw , 14.0625rem );
+    }
+}
+
+@supports not (width: clamp( 7.5rem , 5.5909090909rem  +  9.5454545455vw , 14.0625rem )) {
+    .swiper-clients__slide img {
+      width: calc(7.5rem + 6.5625 * (100vw - 20rem) / 68.75);
     }
 }
 

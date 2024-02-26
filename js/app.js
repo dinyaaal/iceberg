@@ -3985,8 +3985,8 @@
         });
         if (document.querySelector(".clients__swiper")) new swiper_core_Swiper(".clients__swiper", {
             modules: [ Navigation, Pagination ],
-            slidesPerView: 1,
-            spaceBetween: 30,
+            slidesPerView: 2,
+            spaceBetween: 24,
             pagination: {
                 el: ".clients-pagination",
                 clickable: true
