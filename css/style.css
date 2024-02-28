@@ -713,7 +713,7 @@ textarea.input {
   top: 0;
   left: 0;
   z-index: 0;
-  background: url("../img/catalog/decor.svg") center/cover no-repeat;
+  background: url("../img/catalog/decor.svg") center no-repeat;
 }
 
 .price--top-left {
