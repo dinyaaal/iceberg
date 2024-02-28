@@ -2872,9 +2872,6 @@ textarea.input {
     height: 17.625rem;
   }
 
-  .no-webp .item-steps:not(:last-child)::after{
-    background: #fff url("../img/steps/arrow.png") center no-repeat; }
-
   .item-steps:not(:last-child)::after {
     content: "";
     position: absolute;
@@ -2887,9 +2884,10 @@ textarea.input {
     -webkit-transform: translate(0, -50%);
         -ms-transform: translate(0, -50%);
             transform: translate(0, -50%);
+    border: 12px solid #fff;
     -webkit-box-shadow: 0px 4px 30px 0px rgba(123, 156, 180, 0.2);
             box-shadow: 0px 4px 30px 0px rgba(123, 156, 180, 0.2);
-    background-size: 2.75rem;
+    background: #01A3DE url("../img/steps/arrow.svg") center no-repeat;
   }
 }
 
@@ -4238,9 +4236,6 @@ textarea.input {
         justify-self: end;
   }
 
-  .no-webp .item-steps:nth-child(1)::after, .no-webp .item-steps:nth-child(3)::after{
-    background: #fff url("../img/steps/arrow.png") center no-repeat; }
-
   .item-steps:nth-child(1)::after,
   .item-steps:nth-child(3)::after {
     content: "";
@@ -4254,9 +4249,10 @@ textarea.input {
     -webkit-transform: translate(0, -50%);
         -ms-transform: translate(0, -50%);
             transform: translate(0, -50%);
+    border: 12px solid #fff;
     -webkit-box-shadow: 0px 4px 30px 0px rgba(123, 156, 180, 0.2);
             box-shadow: 0px 4px 30px 0px rgba(123, 156, 180, 0.2);
-    background-size: 2.75rem;
+    background: #01A3DE url("../img/steps/arrow.svg") center no-repeat;
   }
 
   .item-steps:nth-child(2),
@@ -4347,13 +4343,3 @@ textarea.input {
 .webp .button--picture::before{ background: url(../img/bg-button.webp) 0 0/cover no-repeat; }
 
 .webp .item-services:first-child{ background: url(../img/services/01.webp) center right no-repeat; }
-
-@media (min-width: 81.25em){
-
-  .webp .item-steps:not(:last-child)::after{ background: #fff url(../img/steps/arrow.webp) center no-repeat; }
-}
-
-@media (min-width: 23.4375em) and (max-width: 81.25em){
-
-  .webp .item-steps:nth-child(1)::after, .webp .item-steps:nth-child(3)::after{ background: #fff url(../img/steps/arrow.webp) center no-repeat; }
-}
