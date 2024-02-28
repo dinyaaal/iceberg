@@ -2889,6 +2889,7 @@ textarea.input {
             transform: translate(0, -50%);
     -webkit-box-shadow: 0px 4px 30px 0px rgba(123, 156, 180, 0.2);
             box-shadow: 0px 4px 30px 0px rgba(123, 156, 180, 0.2);
+    background-size: 2.75rem;
   }
 }
 
@@ -3317,6 +3318,7 @@ textarea.input {
     border-radius: 50%;
     position: relative;
     z-index: 5;
+    cursor: pointer;
   }
 
   .menu-open .menu__button {
@@ -4254,6 +4256,7 @@ textarea.input {
             transform: translate(0, -50%);
     -webkit-box-shadow: 0px 4px 30px 0px rgba(123, 156, 180, 0.2);
             box-shadow: 0px 4px 30px 0px rgba(123, 156, 180, 0.2);
+    background-size: 2.75rem;
   }
 
   .item-steps:nth-child(2),
