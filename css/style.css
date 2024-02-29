@@ -2481,6 +2481,137 @@ textarea.input {
   font-weight: 800;
 }
 
+.house {
+  background: url("../img/decor/bg-01.svg") top no-repeat;
+}
+
+.house__container {
+  position: relative;
+  z-index: 2;
+}
+
+.house__body {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.house__body:not(:last-child) {
+  margin-bottom: 1.25rem;
+}
+
+.house__image {
+  max-width: 56.25rem;
+  opacity: 0.8;
+}
+
+.house__block-header {
+  position: relative;
+  z-index: 2;
+}
+
+.house__text {
+  max-width: 32.1875rem;
+  margin: 0 auto;
+  text-align: center;
+  padding: 0.625rem;
+  border-radius: 8px;
+  background-color: #E9F7FF;
+  line-height: 174.6%;
+}
+
+.house__text span {
+  font-weight: 700;
+}
+
+.house__text:not(:last-child) {
+  margin-bottom: 6.25rem;
+}
+
+.arguments {
+  width: 100%;
+  display: -ms-grid;
+  display: grid;
+  gap: 0.625rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.item-arguments {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 17.0625rem;
+  padding: 2.5rem;
+  -webkit-box-shadow: 0px 4px 30px 0px rgba(123, 156, 180, 0.2);
+          box-shadow: 0px 4px 30px 0px rgba(123, 156, 180, 0.2);
+  background-color: #fff;
+  border-radius: 25rem;
+}
+
+.item-arguments:first-child .item-arguments__image {
+  left: 0;
+  -webkit-transform: translate(-45%);
+      -ms-transform: translate(-45%);
+          transform: translate(-45%);
+}
+
+.item-arguments:last-child {
+  -ms-grid-column-align: end;
+      justify-self: end;
+}
+
+.item-arguments:last-child .item-arguments__image {
+  right: 0;
+  -webkit-transform: translate(45%);
+      -ms-transform: translate(45%);
+          transform: translate(45%);
+}
+
+.item-arguments__title {
+  font-size: 20px;
+  line-height: 174.6%;
+}
+
+.item-arguments__title span {
+  font-weight: 700;
+}
+
+.item-arguments__title:not(:last-child) {
+  margin-bottom: 1rem;
+}
+
+.item-arguments__text li {
+  line-height: 174.6%;
+}
+
+.item-arguments__image {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+}
+
+.item-arguments__image svg {
+  width: 100%;
+  height: 100%;
+}
+
 .swiper-initialized {
   -ms-touch-action: pan-y;
       touch-action: pan-y;
@@ -2947,6 +3078,35 @@ textarea.input {
     padding-right: 2.5rem;
     padding-bottom: 9rem;
   }
+
+  .house__body {
+    gap: 2rem;
+  }
+
+  .house__image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 50%;
+    z-index: -1;
+    -webkit-transform: translate(-50%, 0);
+        -ms-transform: translate(-50%, 0);
+            transform: translate(-50%, 0);
+  }
+
+  .arguments {
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -ms-grid-columns: (1fr)[2];
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .item-arguments {
+    max-width: 25.875rem;
+    min-height: 17.5rem;
+  }
 }
 
 @media (min-width: 61.99875em) {
@@ -3113,6 +3273,7 @@ textarea.input {
 
 @media (min-width: 68.75em) {
   .catalog__items {
+    row-gap: 5rem;
     -ms-grid-columns: (1fr)[2];
     grid-template-columns: repeat(2, 1fr);
   }
@@ -3237,7 +3398,7 @@ textarea.input {
   }
 
   .catalog {
-    padding-bottom: 2.5rem;
+    padding-bottom: 7.5rem;
   }
 
   .catalog__block-header:not(:last-child) {
@@ -3372,6 +3533,14 @@ textarea.input {
 
   .item-advantages {
     padding-right: 5rem;
+  }
+
+  .house {
+    padding-top: 2.9375rem;
+  }
+
+  .house {
+    padding-bottom: 3.875rem;
   }
 }
 
@@ -3588,6 +3757,14 @@ textarea.input {
 
   .item-advantages {
     padding-right: 4.375rem;
+  }
+
+  .house {
+    padding-top: 1.25rem;
+  }
+
+  .house {
+    padding-bottom: 1.375rem;
   }
 }
 
@@ -3825,6 +4002,14 @@ textarea.input {
   .column-description {
     display: none;
   }
+
+  .house__image {
+    margin-top: -1.25rem;
+  }
+
+  .arguments {
+    margin-top: -1.25rem;
+  }
 }
 
 @media (max-width: 29.99875em) {
@@ -3837,10 +4022,13 @@ textarea.input {
   }
 
   .call {
-    width: 100%;
+    width: calc(100% - 20px);
     max-width: 100%;
     bottom: 0.625rem;
-    right: 0;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+            transform: translateX(-50%);
   }
 
   .body-header::before {
@@ -3977,15 +4165,15 @@ textarea.input {
     }
 }
 
-@supports (padding-bottom: clamp( 1.25rem , 0.8863636364rem  +  1.8181818182vw , 2.5rem )) {
+@supports (padding-bottom: clamp( 1.25rem , -0.5681818182rem  +  9.0909090909vw , 7.5rem )) {
     .catalog {
-      padding-bottom: clamp( 1.25rem , 0.8863636364rem  +  1.8181818182vw , 2.5rem );
+      padding-bottom: clamp( 1.25rem , -0.5681818182rem  +  9.0909090909vw , 7.5rem );
     }
 }
 
-@supports not (padding-bottom: clamp( 1.25rem , 0.8863636364rem  +  1.8181818182vw , 2.5rem )) {
+@supports not (padding-bottom: clamp( 1.25rem , -0.5681818182rem  +  9.0909090909vw , 7.5rem )) {
     .catalog {
-      padding-bottom: calc(1.25rem + 1.25 * (100vw - 20rem) / 68.75);
+      padding-bottom: calc(1.25rem + 6.25 * (100vw - 20rem) / 68.75);
     }
 }
 
@@ -4386,6 +4574,30 @@ textarea.input {
 @supports not (padding-right: clamp( 4.375rem , 4.1931818182rem  +  0.9090909091vw , 5rem )) {
     .item-advantages {
       padding-right: calc(4.375rem + 0.625 * (100vw - 20rem) / 68.75);
+    }
+}
+
+@supports (padding-top: clamp( 1.25rem , 0.7590909091rem  +  2.4545454545vw , 2.9375rem )) {
+    .house {
+      padding-top: clamp( 1.25rem , 0.7590909091rem  +  2.4545454545vw , 2.9375rem );
+    }
+}
+
+@supports not (padding-top: clamp( 1.25rem , 0.7590909091rem  +  2.4545454545vw , 2.9375rem )) {
+    .house {
+      padding-top: calc(1.25rem + 1.6875 * (100vw - 20rem) / 68.75);
+    }
+}
+
+@supports (padding-bottom: clamp( 1.375rem , 0.6477272727rem  +  3.6363636364vw , 3.875rem )) {
+    .house {
+      padding-bottom: clamp( 1.375rem , 0.6477272727rem  +  3.6363636364vw , 3.875rem );
+    }
+}
+
+@supports not (padding-bottom: clamp( 1.375rem , 0.6477272727rem  +  3.6363636364vw , 3.875rem )) {
+    .house {
+      padding-bottom: calc(1.375rem + 2.5 * (100vw - 20rem) / 68.75);
     }
 }
 }
