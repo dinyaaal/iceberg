@@ -1,7 +1,3 @@
-<svg width="24.000000" height="24.000000" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-	<desc>
-			Created with Pixso.
-	</desc>
-	<defs/>
-	<path id="Vector 9" d="M8.29297 6.70715L14.293 12.7072L15 12L14.293 11.2928L8.29297 17.2928L9.70703 18.7072L16.4141 12L9.70703 5.29285L8.29297 6.70715Z" fill="#FFFFFF" fill-opacity="1.000000" fill-rule="evenodd"/>
+<svg width="9" height="14" viewBox="0 0 9 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M1 1L7 7L1 13" stroke="white" stroke-width="2"/>
 </svg>

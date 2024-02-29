@@ -713,7 +713,7 @@ textarea.input {
   top: 0;
   left: 0;
   z-index: 0;
-  background: url("../img/catalog/decor.svg") center no-repeat;
+  background: url("../img/catalog/decor.svg") center/contain no-repeat;
 }
 
 .price--top-left {
@@ -1105,7 +1105,7 @@ textarea.input {
   position: fixed;
   bottom: 1.25rem;
   right: 1.25rem;
-  z-index: 50;
+  z-index: 10;
   -webkit-transition: opacity 0.3s;
   transition: opacity 0.3s;
 }
@@ -2543,7 +2543,7 @@ textarea.input {
   width: 100%;
   display: -ms-grid;
   display: grid;
-  gap: 0.625rem;
+  gap: 1.25rem;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
