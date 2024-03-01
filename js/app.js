@@ -5222,13 +5222,13 @@
                 }
             };
         }));
-        const viewMore = document.querySelector(".product__view-more");
+        const viewMore = document.querySelector(".view-more");
         const descriptions = document.querySelectorAll(".column-description");
         if (descriptions.length > 0) viewMore.onclick = () => {
             descriptions.forEach((description => {
                 description.classList.add("column-description--active");
             }));
-            viewMore.classList.add("product__view-more--hidden");
+            viewMore.classList.add("view-more--hidden");
         };
         window["FLS"] = 0;
         isWebp();
