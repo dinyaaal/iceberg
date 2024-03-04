@@ -4058,6 +4058,24 @@
                     }
                 }
             });
+            if (document.querySelector(".trust__slider")) new swiper_core_Swiper(".trust__slider", {
+                modules: [ Navigation ],
+                grabCursor: true,
+                slidesPerView: 1,
+                centeredSlides: true,
+                spaceBetween: 24,
+                speed: 800,
+                navigation: {
+                    prevEl: ".trust__arrow-prev",
+                    nextEl: ".trust__arrow-next"
+                },
+                breakpoints: {
+                    767.98: {
+                        slidesPerView: 1,
+                        enabled: false
+                    }
+                }
+            });
         }
         window.addEventListener("load", (function(e) {
             initSliders();
