@@ -4076,6 +4076,40 @@
                     }
                 }
             });
+            if (document.querySelector(".content-completed")) var contentCompleted = new swiper_core_Swiper(".content-completed", {
+                modules: [ Navigation, Thumb ],
+                slidesPerView: 1,
+                spaceBetween: 1e3,
+                touchRatio: 0,
+                speed: 800,
+                breakpoints: {
+                    991.98: {}
+                },
+                on: {}
+            });
+            if (document.querySelector(".swiper-completed")) new swiper_core_Swiper(".swiper-completed", {
+                modules: [ Navigation, Thumb ],
+                slidesPerView: 1,
+                spaceBetween: 100,
+                centeredSlides: true,
+                speed: 800,
+                thumbs: {
+                    swiper: contentCompleted
+                },
+                navigation: {
+                    prevEl: ".swiper-completed__arrow--left",
+                    nextEl: ".swiper-completed__arrow--right"
+                },
+                breakpoints: {
+                    767.98: {
+                        allowTouchMove: false,
+                        slideToClickedSlide: true,
+                        spaceBetween: 0,
+                        slidesPerView: "auto"
+                    }
+                },
+                on: {}
+            });
         }
         window.addEventListener("load", (function(e) {
             initSliders();
