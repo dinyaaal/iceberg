@@ -6,7 +6,7 @@
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20240309014052">
+	<link rel="stylesheet" href="css/style.min.css?_v=20240309195730">
 	<link rel="shortcut icon" href="">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -104,7 +104,275 @@
 				</div>
 			</div>
 		</header>
-		<main class="page page_analysis-result">
+		<main class="page page-analysis-result">
+			<div class="page__navigation">
+				<div class="page__container">
+					<nav class="page__breadcrumbs breadcrumbs">
+						<ul class="breadcrumbs__list">
+							<li class="breadcrumbs__item">
+								<a href="./home.html" class="breadcrumbs__link">Главная</a>
+							</li>
+							<li class="breadcrumbs__item">
+								<a href="./problems.html" class="breadcrumbs__link">Анализ воды</a>
+							</li>
+							<li class="breadcrumbs__item">
+								<span class="breadcrumbs__current">Результаты</span>
+							</li>
+						</ul>
+					</nav>
+				</div>
+			</div>
+			<div class="result-rating">
+				<div class="result-rating__container">
+					<div data-watch data-watch-once class="result-rating__block-header block-header block-header--center">
+						<h2 class="block-header__title">Результаты анализа воды</h2>
+					</div>
+
+					<!-- 
+                            result-good
+                            result-normal
+                            result-bad
+                            result-danger
+                         -->
+					<div class="result-rating__body result-bad">
+						<div class="result-rating__user user-result">
+							<div class="user-result__body">
+								<div class="user-result__name">Александр Петров:</div>
+								<div class="user-result__address">Винница, ул. Пушкина, 4</div>
+								<div class="user-result__tel">+38 (098) 444-56-74</div>
+								<div class="user-result__date">29.02.2021</div>
+							</div>
+							<a href="#" class="user-result__button button button--big button--picture"><span>Скачать результат</span></a>
+						</div>
+						<div class="result-rating__info info-result">
+							<div class="info-result__body body-info-result">
+								<div class="body-info-result__text">Оценка качества вашей воды</div>
+								<div class="body-info-result__data data-result">
+									<!-- point--good - Отлично
+                                        point--normal - Нормально
+                                        point--bad - Плохо
+                                        point--danger - Опасно -->
+
+									<div class="data-result__items">
+										<div class="data-result__item item-result-good">
+											<div class="data-result__point">
+												<img src="img/analysis/result/point.svg" alt="Icon">
+											</div>
+										</div>
+										<div class="data-result__item item-result-normal">
+											<div class="data-result__point">
+												<img src="img/analysis/result/point.svg" alt="Icon">
+											</div>
+										</div>
+										<div class="data-result__item item-result-bad">
+											<div class="data-result__point">
+												<img src="img/analysis/result/point.svg" alt="Icon">
+											</div>
+										</div>
+										<div class="data-result__item item-result-danger">
+											<div class="data-result__point">
+												<img src="img/analysis/result/point.svg" alt="Icon">
+											</div>
+										</div>
+
+									</div>
+								</div>
+								<ul class="body-info-result__description">
+									<li>
+										<p><span>Отлично</span> - пригодна для питья и купания</p>
+									</li>
+									<li>
+										<p><span>Нормально</span> - пригодна для купания, для питья рекомендуем доочистку</p>
+									</li>
+									<li>
+										<p><span>Плохо</span> - не рекомендуем для питья и хоз-бытовых нужд</p>
+									</li>
+									<li>
+										<p><span>Опасно</span> - категорически не рекомендуется к использованию без очистки</p>
+									</li>
+								</ul>
+							</div>
+							<div class="info-result__text">*Данные результаты основываются на знаниях и опыте специалистов компании ООО НПП “Айсберг”</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="result-analysis">
+				<div class="result-analysis__container">
+					<div class="result-analysis__body body-result-analysis">
+						<div class="body-result-analysis__top">
+							<div class="body-result-analysis__text">
+								<p>Результат анализа №</p>
+								<div class="body-result-analysis__number">10929</div>
+							</div>
+							<a href="#" class="body-result-analysis__recommend button button--big button--picture"><span>Рекомендуемые решения</span></a>
+						</div>
+						<div class="body-result-analysis__table table-analysis">
+							<div class="table-analysis__top top-table-analysis">
+								<div class="top-table-analysis__block"></div>
+
+								<div class="top-table-analysis__items">
+									<div class="top-table-analysis__item">Найменування показника, одиниця виміру</div>
+									<div class="top-table-analysis__item">Результат вимірювання</div>
+									<div class="top-table-analysis__item">Гранично допустиме значення відповідно до ДСанПіН *</div>
+									<div class="top-table-analysis__item">Рекомендовані значення відповідно до санітарних норм</div>
+								</div>
+							</div>
+							<div class="table-analysis__row row-table-analysis">
+								<div class="row-table-analysis__name">Катионы</div>
+								<ul class="row-table-analysis__items">
+									<li class="row-table-analysis__item item-row-table-analysis">
+										<div class="item-row-table-analysis__name">Амоній, мг/дм3</div>
+										<div class="item-row-table-analysis__value">0.3</div>
+										<div class="item-row-table-analysis__max-value">2,6</div>
+										<div class="item-row-table-analysis__recommended-value">
+											< 0.1</div>
+									</li>
+									<li class="row-table-analysis__item item-row-table-analysis">
+										<div class="item-row-table-analysis__name">Натрій+Калій, мг/дм3</div>
+										<div class="item-row-table-analysis__value">76</div>
+										<div class="item-row-table-analysis__max-value">200</div>
+										<div class="item-row-table-analysis__recommended-value">4.0- 40.0</div>
+									</li>
+									<li class="row-table-analysis__item item-row-table-analysis">
+										<div class="item-row-table-analysis__name">Кальцій, мг/дм3</div>
+										<div class="item-row-table-analysis__value">104.2</div>
+										<div class="item-row-table-analysis__max-value">130</div>
+										<div class="item-row-table-analysis__recommended-value">25-75</div>
+									</li>
+									<li class="row-table-analysis__item item-row-table-analysis">
+										<div class="item-row-table-analysis__name">Магній, мг/дм3</div>
+										<div class="item-row-table-analysis__value">4.9</div>
+										<div class="item-row-table-analysis__max-value">80</div>
+										<div class="item-row-table-analysis__recommended-value">10-50</div>
+									</li>
+									<li class="row-table-analysis__item item-row-table-analysis">
+										<div class="item-row-table-analysis__name">Залізо загальне, мг/дм3</div>
+										<div class="item-row-table-analysis__value">0.5</div>
+										<div class="item-row-table-analysis__max-value">1</div>
+										<div class="item-row-table-analysis__recommended-value">
+											< 0.2</div>
+									</li>
+								</ul>
+							</div>
+							<div class="table-analysis__row row-table-analysis">
+								<div class="row-table-analysis__name">Анионы</div>
+								<ul class="row-table-analysis__items">
+									<li class="row-table-analysis__item item-row-table-analysis">
+										<div class="item-row-table-analysis__name">Хлориди, мг/дм3</div>
+										<div class="item-row-table-analysis__value">8.5</div>
+										<div class="item-row-table-analysis__max-value">350</div>
+										<div class="item-row-table-analysis__recommended-value">
+											< 250</div>
+									</li>
+									<li class="row-table-analysis__item item-row-table-analysis">
+										<div class="item-row-table-analysis__name">Сульфати, мг/дм3</div>
+										<div class="item-row-table-analysis__value">39.9</div>
+										<div class="item-row-table-analysis__max-value">500</div>
+										<div class="item-row-table-analysis__recommended-value">
+											< 250</div>
+									</li>
+									<li class="row-table-analysis__item item-row-table-analysis">
+										<div class="item-row-table-analysis__name">Гідрокарбонати, мг/дм3</div>
+										<div class="item-row-table-analysis__value">464</div>
+										<div class="item-row-table-analysis__max-value">-</div>
+										<div class="item-row-table-analysis__recommended-value">-</div>
+									</li>
+									<li class="row-table-analysis__item item-row-table-analysis">
+										<div class="item-row-table-analysis__name">Карбонати, мг/дм3</div>
+										<div class="item-row-table-analysis__value">0.00</div>
+										<div class="item-row-table-analysis__max-value">-</div>
+										<div class="item-row-table-analysis__recommended-value">-</div>
+									</li>
+									<li class="row-table-analysis__item item-row-table-analysis">
+										<div class="item-row-table-analysis__name">Нітрати, мг/дм3</div>
+										<div class="item-row-table-analysis__value">0.00</div>
+										<div class="item-row-table-analysis__max-value">45</div>
+										<div class="item-row-table-analysis__recommended-value">
+											< 10</div>
+									</li>
+									<li class="row-table-analysis__item item-row-table-analysis">
+										<div class="item-row-table-analysis__name">Фосфати, мг/дм3</div>
+										<div class="item-row-table-analysis__value">не виз.</div>
+										<div class="item-row-table-analysis__max-value">3.5</div>
+										<div class="item-row-table-analysis__recommended-value">
+											< 0.6</div>
+									</li>
+								</ul>
+							</div>
+							<div class="table-analysis__row row-table-analysis">
+								<div class="row-table-analysis__name">Органолептичнi<br> показники</div>
+								<ul class="row-table-analysis__items">
+									<li class="row-table-analysis__item item-row-table-analysis">
+										<div class="item-row-table-analysis__name">Запах, бали</div>
+										<div class="item-row-table-analysis__value">1.0</div>
+										<div class="item-row-table-analysis__max-value">2.0</div>
+										<div class="item-row-table-analysis__recommended-value">
+											< 2.0</div>
+									</li>
+									<li class="row-table-analysis__item item-row-table-analysis">
+										<div class="item-row-table-analysis__name">Прозорість, см</div>
+										<div class="item-row-table-analysis__value">30</div>
+										<div class="item-row-table-analysis__max-value">20.0</div>
+										<div class="item-row-table-analysis__recommended-value">30.0 ></div>
+									</li>
+									<li class="row-table-analysis__item item-row-table-analysis">
+										<div class="item-row-table-analysis__name">Присмак, бали</div>
+										<div class="item-row-table-analysis__value">1.0</div>
+										<div class="item-row-table-analysis__max-value">2.0</div>
+										<div class="item-row-table-analysis__recommended-value">
+											< 2.0</div>
+									</li>
+								</ul>
+							</div>
+							<div class="table-analysis__row row-table-analysis">
+								<div class="row-table-analysis__name">Загальнi показники</div>
+								<ul class="row-table-analysis__items">
+									<li class="row-table-analysis__item item-row-table-analysis">
+										<div class="item-row-table-analysis__name">рН, од. рН</div>
+										<div class="item-row-table-analysis__value">7.26</div>
+										<div class="item-row-table-analysis__max-value">6.5-8.5</div>
+										<div class="item-row-table-analysis__recommended-value">6.5-8.5</div>
+									</li>
+									<li class="row-table-analysis__item item-row-table-analysis">
+										<div class="item-row-table-analysis__name">Лужність, ммоль/дм3</div>
+										<div class="item-row-table-analysis__value">7.6</div>
+										<div class="item-row-table-analysis__max-value">-</div>
+										<div class="item-row-table-analysis__recommended-value">05.-6.5</div>
+									</li>
+									<li class="row-table-analysis__item item-row-table-analysis">
+										<div class="item-row-table-analysis__name">Окиснюваність, мг/дм3</div>
+										<div class="item-row-table-analysis__value">1.76</div>
+										<div class="item-row-table-analysis__max-value">5.0</div>
+										<div class="item-row-table-analysis__recommended-value">
+											< 2.0</div>
+									</li>
+									<li class="row-table-analysis__item item-row-table-analysis">
+										<div class="item-row-table-analysis__name">Сухий залишок, мг/дм3</div>
+										<div class="item-row-table-analysis__value">543</div>
+										<div class="item-row-table-analysis__max-value">1000</div>
+										<div class="item-row-table-analysis__recommended-value">200-500</div>
+									</li>
+									<li class="row-table-analysis__item item-row-table-analysis">
+										<div class="item-row-table-analysis__name">Жосткість загальна, ммоль/дм3</div>
+										<div class="item-row-table-analysis__value">5.6</div>
+										<div class="item-row-table-analysis__max-value">10</div>
+										<div class="item-row-table-analysis__recommended-value">1.5-4.0</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="body-result-analysis__buttons">
+							<a href="#" class="body-result-analysis__download button button--big button--picture"><span>Скачать результат</span></a>
+							<a href="#" class="body-result-analysis__recommend button button--big button--white button--border"><span>Рекомендуемые решения</span></a>
+						</div>
+					</div>
+					<div class="result-analysis__text">
+						<p>*- нормативи для води наведені відповідно до Державних санітарних норм та правил «Гігієнічні вимоги до води питної, призначені для споживання людиною» (ДСанПіН 2.2.4-171-10), наказ МОЗ України 12. 05. 2010 №400.</p>
+						<p><span>Жирним шрифтом</span> в графі «Результат вимірювання» виділені значення перевищують встановлені нормативи ДСанПіН рівні вмісту відповідних речовин або елементів. Похибки вимірювань відповідають ДСанПіН, який регламентує проведення аналізу, можуть бути менше зазначених нормативних значень.</p>
+					</div>
+				</div>
+			</div>
 			<div class="result-contact">
 				<div class="result-contact__container">
 					<form class="result-contact form-result" action="#">
@@ -206,7 +474,7 @@
 			</div>
 		</footer>
 	</div>
-	<script src="js/app.min.js?_v=20240309014052"></script>
+	<script src="js/app.min.js?_v=20240309195730"></script>
 </body>
 
 </html>
