@@ -5520,7 +5520,7 @@
         }));
         const viewMore = document.querySelector(".view-more");
         const descriptions = document.querySelector(".description-product");
-        viewMore.addEventListener("click", (() => {
+        if (descriptions) viewMore.addEventListener("click", (() => {
             descriptions.classList.toggle("description-product--active");
         }));
         window["FLS"] = 0;
