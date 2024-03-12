@@ -5519,13 +5519,10 @@
             };
         }));
         const viewMore = document.querySelector(".view-more");
-        const descriptions = document.querySelectorAll(".column-description");
-        if (descriptions.length > 0) viewMore.onclick = () => {
-            descriptions.forEach((description => {
-                description.classList.add("column-description--active");
-            }));
-            viewMore.classList.add("view-more--hidden");
-        };
+        const descriptions = document.querySelector(".description-product");
+        viewMore.addEventListener("click", (() => {
+            descriptions.classList.toggle("description-product--active");
+        }));
         window["FLS"] = 0;
         isWebp();
         addLoadedClass();

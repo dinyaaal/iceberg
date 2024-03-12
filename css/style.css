@@ -2441,6 +2441,14 @@ textarea.input {
   padding-top: 1rem;
 }
 
+.description-product--active {
+  -webkit-transition: all 0.3s linear;
+  transition: all 0.3s linear;
+  max-height: 100%;
+  visibility: visible;
+  opacity: 100%;
+}
+
 .description-product__columns {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -2481,10 +2489,6 @@ textarea.input {
       -ms-transform: rotate(180deg);
           transform: rotate(180deg);
   margin-top: 0rem;
-}
-
-.column-description--active {
-  display: block;
 }
 
 .column-description__title {
@@ -2627,21 +2631,22 @@ textarea.input {
 }
 
 .problems__items {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: (1fr)[2];
-  grid-template-columns: repeat(2, 1fr);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   justify-items: center;
   text-align: center;
-  -webkit-column-gap: 1.25rem;
-     -moz-column-gap: 1.25rem;
-          column-gap: 1.25rem;
+  -webkit-column-gap: 0.9375rem;
+     -moz-column-gap: 0.9375rem;
+          column-gap: 0.9375rem;
   row-gap: 2.5rem;
 }
 
@@ -2664,6 +2669,11 @@ textarea.input {
 }
 
 .item-problems {
+  margin: 0 auto;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 24%;
+          flex: 0 0 24%;
+  min-width: 10rem;
   text-align: center;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -2674,7 +2684,6 @@ textarea.input {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  max-width: 11.625rem;
   position: relative;
 }
 
@@ -6777,11 +6786,6 @@ textarea.input {
     left: 0;
   }
 
-  .problems__items {
-    -ms-grid-columns: (1fr)[4];
-    grid-template-columns: repeat(4, 1fr);
-  }
-
   .apartment__image {
     margin-top: -0.625rem;
   }
@@ -8249,8 +8253,12 @@ textarea.input {
     padding: 0;
   }
 
-  .column-description {
-    display: none;
+  .description-product {
+    max-height: 0;
+    visibility: hidden;
+    opacity: 0;
+    -webkit-transition: all 0.3s linear;
+    transition: all 0.3s linear;
   }
 
   .product-set__price {
