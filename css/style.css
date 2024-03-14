@@ -5493,7 +5493,7 @@ textarea.input {
   padding-bottom: 2.5rem;
 }
 
-.result-advantages__items {
+.result-services__items {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -5509,8 +5509,8 @@ textarea.input {
   position: relative;
 }
 
-.result-advantages__items::before,
-.result-advantages__items::after {
+.result-services__items::before,
+.result-services__items::after {
   content: "";
   position: absolute;
   width: 100%;
@@ -5520,27 +5520,34 @@ textarea.input {
   z-index: -1;
 }
 
-.result-advantages__items::before {
+.result-services__items::before {
   -webkit-transform: translate(-1.25rem, -1.25rem) rotate(180deg);
       -ms-transform: translate(-1.25rem, -1.25rem) rotate(180deg);
           transform: translate(-1.25rem, -1.25rem) rotate(180deg);
   background: url("../img/cleaning/decor.svg") bottom right no-repeat;
 }
 
-.result-advantages__items::after {
+.result-services__items::after {
   -webkit-transform: translate(1.25rem, 1.25rem);
       -ms-transform: translate(1.25rem, 1.25rem);
           transform: translate(1.25rem, 1.25rem);
   background: url("../img/cleaning/decor.svg") bottom right no-repeat;
 }
 
-.result-advantages__item {
+.result-services__item {
   border-radius: 9.375rem;
   overflow: hidden;
   position: relative;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
 }
 
-.result-advantages__text {
+.result-services__item img {
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.result-services__text {
   position: absolute;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -6908,7 +6915,7 @@ textarea.input {
             order: 4;
   }
 
-  .page-analysis-result .result-advantages {
+  .page-analysis-result .result-services {
     -webkit-box-ordinal-group: 6;
         -ms-flex-order: 5;
             order: 5;
@@ -7741,11 +7748,11 @@ textarea.input {
     padding-right: 1.5rem;
   }
 
-  .result-advantages {
+  .result-services {
     padding-top: 3.125rem;
   }
 
-  .result-advantages {
+  .result-services {
     padding-bottom: 5rem;
   }
 
@@ -8228,11 +8235,11 @@ textarea.input {
     padding-right: 0.5rem;
   }
 
-  .result-advantages {
+  .result-services {
     padding-top: 2.5rem;
   }
 
-  .result-advantages {
+  .result-services {
     padding-bottom: 2.5rem;
   }
 
@@ -9886,25 +9893,25 @@ textarea.input {
 }
 
 @supports (padding-top: clamp( 2.5rem , 2.3181818182rem  +  0.9090909091vw , 3.125rem )) {
-    .result-advantages {
+    .result-services {
       padding-top: clamp( 2.5rem , 2.3181818182rem  +  0.9090909091vw , 3.125rem );
     }
 }
 
 @supports not (padding-top: clamp( 2.5rem , 2.3181818182rem  +  0.9090909091vw , 3.125rem )) {
-    .result-advantages {
+    .result-services {
       padding-top: calc(2.5rem + 0.625 * (100vw - 20rem) / 68.75);
     }
 }
 
 @supports (padding-bottom: clamp( 2.5rem , 1.7727272727rem  +  3.6363636364vw , 5rem )) {
-    .result-advantages {
+    .result-services {
       padding-bottom: clamp( 2.5rem , 1.7727272727rem  +  3.6363636364vw , 5rem );
     }
 }
 
 @supports not (padding-bottom: clamp( 2.5rem , 1.7727272727rem  +  3.6363636364vw , 5rem )) {
-    .result-advantages {
+    .result-services {
       padding-bottom: calc(2.5rem + 2.5 * (100vw - 20rem) / 68.75);
     }
 }
@@ -10380,6 +10387,23 @@ textarea.input {
 
   .analysis-location__route span:hover {
     color: #0479a3;
+  }
+
+  .result-services__item:hover {
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    -webkit-box-shadow: 0px 4px 30px 0px rgba(1, 163, 222, 0.3);
+            box-shadow: 0px 4px 30px 0px rgba(1, 163, 222, 0.3);
+  }
+
+  .result-services__item:hover .result-services__text {
+    color: #01A3DE;
+  }
+
+  .result-services__item:hover img {
+    -webkit-transform: scale(1.05);
+        -ms-transform: scale(1.05);
+            transform: scale(1.05);
   }
 
   .swiper-service__body:hover {
