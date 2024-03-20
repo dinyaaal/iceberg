@@ -5499,20 +5499,24 @@
         }
         const da = new DynamicAdapt("max");
         da.init();
-        const itemsList2 = document.querySelectorAll(".desktop-slider__wrapper li");
-        const list2 = document.querySelector(".desktop-slider__wrapper");
-        const list1 = document.querySelector(".desktop-content__wrapper");
-        itemsList2.forEach(((item, index) => {
-            item.onclick = () => {
-                if (!item.classList.contains("active")) {
-                    list1.querySelectorAll("li").forEach((item => item.classList.remove("show")));
+        const slides = document.querySelectorAll(".desktop-slider__slide");
+        const desktopContentSlides = document.querySelectorAll(".desktop-content__slide");
+        slides.forEach(((slide, index) => {
+            slide.onclick = () => {
+                if (!slide.classList.contains("desktop-slider__wrapper--active")) {
+                    desktopContentSlides.forEach((item => {
+                        item.classList.remove("show");
+                    }));
                     setTimeout((() => {
-                        list1.querySelectorAll("li").forEach((item => item.classList.remove("desktop-content__wrapper--active")));
-                        list2.querySelectorAll("li").forEach((item => item.classList.remove("desktop-slider__wrapper--active")));
-                        list1.querySelectorAll("li")[index].classList.add("desktop-content__wrapper--active");
-                        list2.querySelectorAll("li")[index].classList.add("desktop-slider__wrapper--active");
+                        desktopContentSlides.forEach((item => {
+                            item.classList.remove("desktop-content__wrapper--active");
+                        }));
+                        slides.forEach((item => item.classList.remove("desktop-slider__wrapper--active")));
+                        slides.forEach((item => item.classList.remove("desktop-slider__wrapper--active")));
+                        desktopContentSlides[index].classList.add("desktop-content__wrapper--active");
+                        slides[index].classList.add("desktop-slider__wrapper--active");
                         setTimeout((() => {
-                            list1.querySelectorAll("li")[index].classList.add("show");
+                            desktopContentSlides[index].classList.add("show");
                         }), 200);
                     }), 200);
                 }
