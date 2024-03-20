@@ -91,8 +91,8 @@ body {
 }
 
 .loaded body {
-  -webkit-transition: opacity 1s;
-  transition: opacity 1s;
+  -webkit-transition: opacity 0.3s ease;
+  transition: opacity 0.3s ease;
   opacity: 1;
 }
 
@@ -5808,6 +5808,7 @@ textarea.input {
   border: 1px solid rgb(216, 236, 248);
   border-radius: 1.5rem;
   position: relative;
+  z-index: 1;
   height: 100%;
   width: 100%;
 }
@@ -5820,6 +5821,7 @@ textarea.input {
   height: 100%;
   top: 0;
   left: 0;
+  z-index: -1;
   background: url("../img/product/border.svg") 0 0 no-repeat;
 }
 
@@ -5835,7 +5837,7 @@ textarea.input {
   font-weight: 700;
   line-height: 137.5%;
   /* 22/16 */
-  padding-left: 0.625rem;
+  padding: 0.625rem;
   border-left: 2px solid rgb(1, 163, 222);
 }
 
@@ -5844,14 +5846,39 @@ textarea.input {
 }
 
 .item-content-service__text {
-  padding-left: 1.25rem;
-  font-size: 0.875rem;
   line-height: 157.142857%;
   /* 22/14 */
+  font-size: 0.875rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 0.3125rem;
+  padding-left: 0.625rem;
 }
 
 .item-content-service__text li {
-  list-style: disc;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 0.625rem;
+}
+
+.item-content-service__text li::before {
+  content: "";
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 0.1875rem;
+          flex: 0 0 0.1875rem;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background-color: #000;
 }
 
 .price-list {

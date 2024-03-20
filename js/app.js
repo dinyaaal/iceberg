@@ -4427,7 +4427,7 @@
                 modules: [ Navigation, Thumb ],
                 slidesPerView: 1,
                 spaceBetween: 1e3,
-                touchRatio: 0,
+                allowTouchMove: 0,
                 speed: 800,
                 breakpoints: {
                     991.98: {}
