@@ -4424,10 +4424,14 @@
                 on: {}
             });
             if (document.querySelector(".content-service")) contentCompleted = new swiper_core_Swiper(".content-service", {
-                modules: [ Navigation, Thumb ],
+                modules: [ Navigation, Thumb, EffectFade ],
                 slidesPerView: 1,
                 spaceBetween: 1e3,
                 allowTouchMove: 0,
+                effect: "fade",
+                fadeEffect: {
+                    crossFade: true
+                },
                 speed: 800,
                 breakpoints: {
                     991.98: {}
@@ -4444,10 +4448,6 @@
                 speed: 800,
                 thumbs: {
                     swiper: contentCompleted
-                },
-                navigation: {
-                    prevEl: ".swiper-completed__arrow--left",
-                    nextEl: ".swiper-completed__arrow--right"
                 },
                 breakpoints: {},
                 on: {}
