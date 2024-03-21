@@ -7952,7 +7952,7 @@ textarea.input {
   }
 
   .base__articles li {
-    font-size: 1.875rem;
+    font-size: 1.5rem;
   }
 
   .base-article {
@@ -7964,7 +7964,7 @@ textarea.input {
   }
 
   .item-base-article {
-    font-size: 1.875rem;
+    font-size: 1.5rem;
   }
 }
 
@@ -8435,7 +8435,7 @@ textarea.input {
   }
 
   .base__articles li {
-    font-size: 1.5rem;
+    font-size: 1.125rem;
   }
 
   .base-article {
@@ -10192,15 +10192,15 @@ textarea.input {
     }
 }
 
-@supports (font-size: clamp( 1.5rem , 1.3909090909rem  +  0.5454545455vw , 1.875rem )) {
+@supports (font-size: clamp( 1.125rem , 1.0159090909rem  +  0.5454545455vw , 1.5rem )) {
     .base__articles li {
-      font-size: clamp( 1.5rem , 1.3909090909rem  +  0.5454545455vw , 1.875rem );
+      font-size: clamp( 1.125rem , 1.0159090909rem  +  0.5454545455vw , 1.5rem );
     }
 }
 
-@supports not (font-size: clamp( 1.5rem , 1.3909090909rem  +  0.5454545455vw , 1.875rem )) {
+@supports not (font-size: clamp( 1.125rem , 1.0159090909rem  +  0.5454545455vw , 1.5rem )) {
     .base__articles li {
-      font-size: calc(1.5rem + 0.375 * (100vw - 20rem) / 68.75);
+      font-size: calc(1.125rem + 0.375 * (100vw - 20rem) / 68.75);
     }
 }
 
@@ -10228,15 +10228,15 @@ textarea.input {
     }
 }
 
-@supports (font-size: clamp( 1.125rem , 0.9068181818rem  +  1.0909090909vw , 1.875rem )) {
+@supports (font-size: clamp( 1.125rem , 1.0159090909rem  +  0.5454545455vw , 1.5rem )) {
     .item-base-article {
-      font-size: clamp( 1.125rem , 0.9068181818rem  +  1.0909090909vw , 1.875rem );
+      font-size: clamp( 1.125rem , 1.0159090909rem  +  0.5454545455vw , 1.5rem );
     }
 }
 
-@supports not (font-size: clamp( 1.125rem , 0.9068181818rem  +  1.0909090909vw , 1.875rem )) {
+@supports not (font-size: clamp( 1.125rem , 1.0159090909rem  +  0.5454545455vw , 1.5rem )) {
     .item-base-article {
-      font-size: calc(1.125rem + 0.75 * (100vw - 20rem) / 68.75);
+      font-size: calc(1.125rem + 0.375 * (100vw - 20rem) / 68.75);
     }
 }
 }
