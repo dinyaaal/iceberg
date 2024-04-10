@@ -2524,7 +2524,7 @@ textarea.input {
   padding: 1.5rem;
   border: 1px solid rgb(216, 236, 248);
   border-radius: 1.5rem;
-  overflow: visible;
+  overflow: hidden;
 }
 
 .column-description::before,
@@ -2558,7 +2558,7 @@ textarea.input {
 }
 
 .column-description__text {
-  line-height: 174.6%;
+  line-height: 120%;
 }
 
 .column-description__text:not(:last-child) {
@@ -2570,7 +2570,16 @@ textarea.input {
 }
 
 .column-description__text li:not(:last-child) {
-  margin-bottom: 1.25rem;
+  margin-bottom: 0.625rem;
+}
+
+.page-product-set .column-description--active {
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  height: 100%;
+  visibility: visible;
+  opacity: 100%;
+  padding: 1.5rem;
 }
 
 .body-product {
@@ -2637,6 +2646,29 @@ textarea.input {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+}
+
+.product-set__item-wrapper {
+  width: 100%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[1];
+  grid-template-columns: repeat(1, 1fr);
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  justify-items: center;
+}
+
+.product-set__item-wrapper > :not(:last-child) {
+  margin-bottom: 2.5rem;
 }
 
 .product-set__item {
@@ -7101,6 +7133,14 @@ textarea.input {
     min-width: 17.1875rem;
   }
 
+  .column-description__text {
+    line-height: 174.6%;
+  }
+
+  .column-description__text li:not(:last-child) {
+    margin-bottom: 1.25rem;
+  }
+
   .top__buttons {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
@@ -7312,6 +7352,10 @@ textarea.input {
     -webkit-transform: translateX(5rem) rotate(180deg);
         -ms-transform: translateX(5rem) rotate(180deg);
             transform: translateX(5rem) rotate(180deg);
+  }
+
+  .product-set__view-more {
+    display: none;
   }
 
   .product-set__content {
@@ -9247,6 +9291,15 @@ textarea.input {
     opacity: 0;
     -webkit-transition: all 0.3s linear;
     transition: all 0.3s linear;
+  }
+
+  .page-product-set .column-description {
+    height: 0;
+    visibility: hidden;
+    opacity: 0;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    padding: 0;
   }
 
   .product-set__price {

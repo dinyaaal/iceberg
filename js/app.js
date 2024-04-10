@@ -7127,8 +7127,16 @@
         }));
         const viewMore = document.querySelector(".view-more");
         const descriptions = document.querySelector(".description-product");
-        if (descriptions) viewMore.addEventListener("click", (() => {
+        if (viewMore) viewMore.addEventListener("click", (() => {
             descriptions.classList.toggle("description-product--active");
+        }));
+        const viewMoreButtons = document.querySelectorAll(".view-more-item");
+        if (viewMoreButtons) viewMoreButtons.forEach((button => {
+            button.addEventListener("click", (function() {
+                const parentItem = this.closest(".product-set__item-wrapper");
+                const descriptionColumn = parentItem.querySelector(".column-description");
+                descriptionColumn.classList.toggle("column-description--active");
+            }));
         }));
         window["FLS"] = 0;
         isWebp();
