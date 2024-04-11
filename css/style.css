@@ -2901,7 +2901,9 @@ textarea.input {
 .page-product-set .column-description--active {
   -webkit-transition: all 0.3s !important;
   transition: all 0.3s !important;
-  height: 100% !important;
+  height: -webkit-fit-content !important;
+  height: -moz-fit-content !important;
+  height: fit-content !important;
   visibility: visible !important;
   opacity: 100% !important;
   padding: 1.5rem !important;
